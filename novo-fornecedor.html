@@ -1,0 +1,131 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Novo Fornecedor</title>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+  <div class="container">
+
+    <a href="fornecedores.html" class="btn outline" style="margin-bottom:15px; display:inline-block;">← Voltar</a>
+
+    <h2>Dados do Fornecedor</h2>
+
+    <div class="card">
+      <label>Nome do Fornecedor / Razão Social</label>
+      <input id="nomeFornecedor" type="text"/>
+
+      <label>Tipo de Serviço</label>
+      <div class="row">
+        <button class="tag active" id="btnRest">Restaurante</button>
+        <button class="tag" id="btnHotel">Hotelaria</button>
+      </div>
+
+      <label>Email de Contato</label>
+      <input id="email" type="email"/>
+
+      <label>Telefone</label>
+      <input id="telefone" type="text"/>
+
+      <label>Município</label>
+      <input id="municipio" type="text"/>
+    </div>
+
+    <!-- RESTAURANTE -->
+    <div id="blocoRestaurante">
+      <h2>Valores Negociados (Alimentação)</h2>
+      <div class="card">
+        <label>Valor Marmita (R$)</label>
+        <input id="valorMarmita" type="number"/>
+
+        <label>Valor Self Service (R$)</label>
+        <input id="valorSelf" type="number"/>
+
+        <label>Prato Executivo + Bebida (R$)</label>
+        <input id="valorExecutivo" type="number"/>
+
+        <label>Condição de Pagamento</label>
+        <select id="pagamentoRest">
+          <option value="15">Faturar 15 dias</option>
+          <option value="30">Faturar 30 dias</option>
+          <option value="empresa">Faturado Empresa</option>
+        </select>
+
+        <div id="empresaRest" style="display:none">
+          <label>Empresa a Faturar</label>
+          <input id="empresaRestNome" type="text"/>
+        </div>
+      </div>
+    </div>
+
+    <!-- HOTEL -->
+    <div id="blocoHotel" style="display:none">
+      <h2>Valores Negociados (Hotelaria)</h2>
+      <div class="card">
+
+        <div id="quartos"></div>
+
+        <button type="button" class="btn outline" onclick="addQuarto()">+ Adicionar outro quarto</button>
+
+        <label style="margin-top:10px">Condição de Pagamento</label>
+        <select id="pagamentoHotel">
+          <option value="15">Faturar 15 dias</option>
+          <option value="30">Faturar 30 dias</option>
+          <option value="empresa">Faturado Empresa</option>
+        </select>
+
+        <div id="empresaHotel" style="display:none">
+          <label>Empresa a Faturar</label>
+          <input id="empresaHotelNome" type="text"/>
+        </div>
+
+        <label>Valor Água (R$)</label>
+        <input id="valorAgua" type="number"/>
+
+        <label>Valor Lavanderia (R$)</label>
+        <input id="valorLavanderia" type="number"/>
+      </div>
+    </div>
+
+    <h2>Dados Bancários</h2>
+    <div class="card">
+      <label>Tipo de Conta</label>
+      <div class="row">
+        <label><input type="radio" name="tipoConta" value="PJ" checked/> Pessoa Jurídica (PJ)</label>
+        <label><input type="radio" name="tipoConta" value="PF"/> Pessoa Física (PF)</label>
+      </div>
+
+      <label>Nome do Beneficiário</label>
+      <input id="beneficiario" type="text"/>
+
+      <label>CPF / CNPJ</label>
+      <input id="cpfCnpj" type="text"/>
+
+      <label>Nome do Banco</label>
+      <input id="bancoNome" type="text"/>
+
+      <label>Número do Banco</label>
+      <input id="bancoNumero" type="text"/>
+
+      <label>Agência</label>
+      <input id="agencia" type="text"/>
+
+      <label>Conta</label>
+      <input id="conta" type="text"/>
+
+      <label>Chave Pix (Opcional)</label>
+      <input id="pix" type="text"/>
+    </div>
+
+    <div class="row space">
+      <a href="fornecedores.html" class="btn outline">Cancelar</a>
+      <button onclick="salvarFornecedor()" class="btn primary">Salvar Fornecedor</button>
+    </div>
+  </div>
+
+<script src="js/fornecedores.js"></script>
+</body>
+</html>

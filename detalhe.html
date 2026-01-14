@@ -1,0 +1,22 @@
+<!doctype html><html><head><meta name=viewport content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="css/style.css"></head><body>
+<header><img src="assets/logo.jpg"><b>Voucher</b><button class="btn ghost" onclick="history.back()">Voltar</button></header>
+<nav class="tabs">
+  <button onclick="location.href='index.html'">Vouchers</button>
+  <button onclick="location.href='fornecedores.html'">Fornecedores</button>
+</nav>
+
+<div class="container">
+    <div class="nav-big">
+      <a href="index.html" class="active">Vouchers</a>
+      <a href="fornecedores.html" class="">Fornecedores</a>
+    </div>
+    
+    
+    
+<div class="card" id="voucherCard"></div>
+<div style="display:flex;gap:10px"><button class="btn ghost" onclick="editarVoucher()">Editar</button><button class="btn" onclick="gerarPDF()">Baixar PDF</button></div>
+</div>
+<script src="js/app.js"></script>
+    
+</body></html>

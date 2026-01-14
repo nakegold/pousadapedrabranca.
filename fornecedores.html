@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+  <img src="assets/logo.jpg">
+  <b>Fornecedores</b>
+</header>
+
+<nav class="tabs">
+  <button onclick="location.href='index.html'">Vouchers</button>
+  <button class="active">Fornecedores</button>
+</nav>
+
+<div class="container">
+    <div class="nav-big">
+      <a href="index.html" class="">Vouchers</a>
+      <a href="fornecedores.html" class="active">Fornecedores</a>
+    </div>
+    
+    
+    
+
+<div class="card">
+  <h2>Dashboard</h2>
+  <div class="row">
+    <div class="block">Total: <b id="t_total">0</b></div>
+    <div class="block">Hotéis: <b id="t_hotel">0</b></div>
+    <div class="block">Restaurantes: <b id="t_rest">0</b></div>
+  </div>
+</div>
+
+<button class="btn" onclick="location.href='novo-fornecedor.html'">+ Novo Fornecedor</button>
+
+<div id="listaFornecedores"></div>
+
+</div>
+
+<script src="js/fornecedores.js"></script>
+
+    
+    
+
+<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+</body>
+</html>

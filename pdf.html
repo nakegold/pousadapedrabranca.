@@ -1,0 +1,103 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="css/pdf.css"></head><body>
+<div class="pdf" id="pdf">
+
+<div class="header">
+  <div>
+    <div class="title">Voucher de Hospedagem</div>
+    <div class="sub">Reserva Confirmada</div>
+  </div>
+  <img src="assets/logo.jpg" height="50">
+</div>
+
+<div class="card2 grid">
+ <div><b>Empresa</b><br><span id="p_empresa"></span></div>
+ <div><b>Operação</b><br><span id="p_operacao"></span></div>
+ <div><b>Check-in</b><br><span id="p_entrada"></span></div>
+ <div><b>Check-out</b><br><span id="p_saida"></span></div>
+</div>
+
+<div class="section">
+<h3>Hóspedes</h3>
+<div class="card2" id="p_hospedes"></div>
+<div class="card2"><b>Acomodação:</b> <span id="p_tipo"></span> | <b>Quartos:</b> <span id="p_quartos"></span></div>
+</div>
+
+<div class="section grid">
+ <div>
+   <h3>Hotel</h3>
+   <div class="card2" id="p_hotel"></div>
+   <div class="card2">Endereço: <span id="p_endHotel"></span></div>
+   <div class="card2">Café: <span id="p_cafe"></span></div>
+   <div class="card2">Lavanderia: <span id="p_lavanderia"></span></div>
+ </div>
+ <div>
+   <h3>Restaurante</h3>
+   <div class="card2" id="p_restaurante"></div>
+   <div class="card2">Horário: <span id="p_horarioRest"></span></div>
+   <div class="card2">Endereço: <span id="p_endRest"></span></div>
+ </div>
+</div>
+
+<div class="section">
+<h3>Faturamento</h3>
+<div class="card2" id="p_faturado"></div>
+</div>
+
+<div class="section">
+<h3>Contato</h3>
+<div class="card2">
+Reserva: <span id="p_respReserva"></span><br>
+Operacional: <span id="p_respOperacional"></span><br>
+<span id="p_email"></span> • <span id="p_telefone"></span>
+</div>
+</div>
+
+<div class="section">
+<h3>Observações</h3>
+<div class="card2" id="p_obs"></div>
+</div>
+
+<div class="footer" id="p_data"></div>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<script>
+window.addEventListener("message",async(e)=>{
+ const v=e.data
+ p_empresa.innerText=v.empresa
+ p_operacao.innerText=v.operacao
+ p_entrada.innerText=v.entrada
+ p_saida.innerText=v.saida
+ p_hospedes.innerHTML="• "+v.hospedes.join("<br>• ")
+ p_tipo.innerText=v.tipo
+ p_quartos.innerText=v.quartos
+ p_hotel.innerText=v.hotel
+ p_endHotel.innerText=v.enderecoHotel
+ p_cafe.innerText=v.cafe
+ p_lavanderia.innerText=v.lavanderia
+ p_restaurante.innerText=v.restaurante
+ p_horarioRest.innerText=v.horarioRest
+ p_endRest.innerText=v.enderecoRest
+ p_faturado.innerText=v.faturado ? "Faturado para empresa" : "Não faturado para empresa"
+ p_respReserva.innerText=v.respReserva
+ p_respOperacional.innerText=v.respOperacional
+ p_email.innerText=v.email
+ p_telefone.innerText=v.telefone
+ p_obs.innerText=v.observacoes || "-"
+ p_data.innerText="Documento gerado em "+new Date().toLocaleString()
+
+ await new Promise(r=>setTimeout(r,500))
+ const canvas=await html2canvas(document.getElementById("pdf"),{scale:2})
+ const img=canvas.toDataURL("image/png")
+ const {jsPDF}=window.jspdf
+ const pdf=new jsPDF("p","mm","a4")
+ const w=210, h=canvas.height*w/canvas.width
+ pdf.addImage(img,"PNG",0,10,w,h)
+ pdf.save("voucher.pdf")
+})
+</script>
+</body></html>

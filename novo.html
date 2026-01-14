@@ -1,0 +1,65 @@
+<!doctype html><html><head><meta name=viewport content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="css/style.css"></head><body>
+<header><img src="assets/logo.jpg"><b>Novo Voucher</b><button class="btn ghost" onclick="history.back()">Voltar</button></header>
+<nav class="tabs">
+  <button onclick="location.href='index.html'">Vouchers</button>
+  <button onclick="location.href='fornecedores.html'">Fornecedores</button>
+</nav>
+
+<div class="container">
+    <div class="nav-big">
+      <a href="index.html" class="active">Vouchers</a>
+      <a href="fornecedores.html" class="">Fornecedores</a>
+    </div>
+    
+    
+    <div class="card">
+
+<h2>Dados da Solicitação</h2>
+<input id="empresa" placeholder="Empresa">
+<input id="solicitante" placeholder="Solicitante">
+<input id="operacao" placeholder="Operação">
+
+<h2>Período</h2>
+<div class="row"><div class="col"><input type="date" id="entrada"></div><div class="col"><input type="date" id="saida"></div></div>
+
+<h2>Hóspedes</h2>
+<div id="guests"><input placeholder="Nome do hóspede"></div>
+<button class="btn ghost" onclick="addGuest()">Adicionar hóspede</button>
+
+<h2>Acomodação</h2>
+<div class="select-group">
+<div id="t_Single" class="select" onclick="setTipo('Single')">Single</div>
+<div id="t_Double" class="select" onclick="setTipo('Double')">Double</div>
+<div id="t_Triple" class="select" onclick="setTipo('Triple')">Triple</div>
+</div>
+<input id="quartos" value="1" placeholder="Qtd. Quartos">
+
+<h2>Hotel & Serviços</h2>
+<input id="hotel" placeholder="Nome do hotel">
+<input id="enderecoHotel" placeholder="Endereço do hotel">
+<input id="cafe" placeholder="Horário café">
+<input id="lavanderia" placeholder="Horário lavanderia">
+
+<h2>Restaurante</h2>
+<input id="restaurante" placeholder="Nome restaurante">
+<input id="horarioRest" placeholder="Horário funcionamento">
+<input id="enderecoRest" placeholder="Endereço restaurante">
+
+<h2>Faturamento</h2>
+<label><input type="checkbox" id="faturado"> Faturado para empresa</label>
+
+<h2>Contato</h2>
+<input id="respReserva" placeholder="Resp. Reserva">
+<input id="respOperacional" placeholder="Resp. Operacional">
+<input id="email" placeholder="Email">
+<input id="telefone" placeholder="Telefone">
+
+<h2>Observações</h2>
+<textarea id="observacoes" placeholder="Informações adicionais..."></textarea>
+
+<br><br><button class="btn" id="btnSalvar" onclick="saveVoucher()">Criar Voucher</button>
+</div></div>
+<script src="js/app.js"></script>
+    
+</body></html>
